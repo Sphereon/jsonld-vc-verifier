@@ -1,0 +1,84 @@
+{
+  "name": "@sphereon/jsonld-vc-verifier",
+  "version": "1.0.0",
+  "description": "Library to support verifying jsonld verifiable credentials/presentations",
+  "source": "index.ts",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "=14.*.*"
+  },
+  "scripts": {
+    "build": "run-s build:*",
+    "build:ts": "tsc -p ./tsconfig.json",
+    "build:copyfiles": "copyfiles src/contexts/*.* ./dist",
+    "test:ci": "jest --config=jest.json",
+    "test": "jest --verbose --config=jest.json --coverage=true --detectOpenHandles",
+    "fix": "run-s fix:\\*",
+    "fix:prettier": "prettier \"**/*.ts\" --write",
+    "fix:lint": "eslint . --ext .ts --fix"
+  },
+  "dependencies": {
+    "@digitalcredentials/ed25519-signature-2020": "^3.0.2",
+    "@digitalcredentials/ed25519-verification-key-2020": "^3.2.2",
+    "@digitalcredentials/jsonld-signatures": "^9.3.1",
+    "@digitalcredentials/vc": "^1.1.2",
+    "@mattrglobal/bbs-signatures": "1.0.0",
+    "@mattrglobal/bls12381-key-pair": "1.0.0",
+    "@mattrglobal/jsonld-signatures-bbs": "1.0.1",
+    "@sphereon/ed25519-signature-2018": "0.7.0-unstable.2",
+    "@sphereon/ssi-sdk-bls-did-resolver-key": "0.8.1-unstable.5",
+    "@sphereon/ssi-sdk-bls-kms-local": "^0.8.1-unstable.5",
+    "@sphereon/ssi-sdk-core": "^0.8.1-unstable.5",
+    "@transmute/ed25519-key-pair": "0.7.0-unstable.62",
+    "@transmute/lds-ecdsa-secp256k1-recovery2020": "0.0.7",
+    "@veramo/core": "3.1.2-next.84",
+    "@veramo/utils": "3.1.2-next.84",
+    "did-resolver": "^3.1.5",
+    "ed25519-signature-2018-context": "^1.1.0",
+    "ed25519-signature-2020-context": "^1.1.0",
+    "jsonld-signatures": "5.0.1"
+  },
+  "devDependencies": {
+    "@sphereon/did-uni-client": "^0.4.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^14.14.43",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "@veramo/kms-local": "3.1.2-next.84",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "jest": "^27.3.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.6.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git@github.com:Sphereon-Opensource/SSI-SDK.git",
+  "author": "Sphereon <dev@sphereon.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Sphereon",
+    "W3C",
+    "Verifiable Credentials",
+    "Verifiable Presentations",
+    "JsonLd"
+  ],
+  "react-native": {
+    "vc-js": "@digitalcredentials/vc",
+    "jsonld": "@digitalcredentials/jsonld",
+    "jsonld-signatures": "@digitalcredentials/jsonld-signatures"
+  },
+  "browser": {
+    "vc-js": "@digitalcredentials/vc",
+    "jsonld": "@digitalcredentials/jsonld",
+    "jsonld-signatures": "@digitalcredentials/jsonld-signatures"
+  }
+}
